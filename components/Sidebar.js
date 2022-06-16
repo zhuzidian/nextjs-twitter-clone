@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image"
 
 import {
@@ -32,6 +33,29 @@ export default function Sidebar() {
       <button className="hidden xl:inline bg-[#1d9bf0] hover:bg-[#1a8cd8] text-white ml-auto rounded-full w-56 h-12 shadow-md">
         ツイートする
       </button>
+
+      <div className="flex items-center justify-center hover-animation mt-auto xl:ml-auto">
+        {/* <Image
+          src="https://avatars.githubusercontent.com/u/6506853?s=40&v=4"
+          alt=""
+          className="rounded-full xl:mr-2"
+          width={40}
+          height={40}
+        /> */}
+
+        <img
+          src="https://avatars.githubusercontent.com/u/6506853?s=40&v=4"
+          alt=""
+          className="h-10 w-10 rounded-full xl:mr-2.5"
+        />
+
+        <div className="hidden xl:inline leading-5">
+          <h4 className="font-bold">zidian</h4>
+          <p className="text-gray-300">@zidian</p>
+        </div>
+
+        <MdMoreHoriz size={30} className="hidden xl:inline ml-10" />
+      </div>
     </div>
   )
 }

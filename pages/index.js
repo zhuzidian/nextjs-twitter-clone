@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
+import Feed from "../components/Feed"
 import Sidebar from "../components/Sidebar"
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
 
       <main className="min-h-screen flex mx-auto max-w-[1000px]">
         <Sidebar />
+        <Feed />
       </main>
     </div>
   )
