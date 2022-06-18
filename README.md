@@ -1,3 +1,4 @@
 - next.js
 - tailwindcss
 - react-icons
+- emoji-mart

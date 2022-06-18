@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false, // EmojiPickerが2回レンダリングされるため暫定措置としてfalseにする
   images: {
-    domains: ["rb.gy", "pbs.twimg.com", "avatars.githubusercontent.com"],
+    domains: [
+      "rb.gy",
+      "pbs.twimg.com",
+      "avatars.githubusercontent.com",
+      "w.wallhaven.cc",
+    ],
   },
 }
 

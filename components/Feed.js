@@ -1,4 +1,5 @@
 import { HiOutlineSparkles } from "react-icons/hi"
+import Input from "./Input"
 
 export default function Feed(props) {
   return (
@@ -9,6 +10,8 @@ export default function Feed(props) {
           <HiOutlineSparkles className="h-5" />
         </div>
       </div>
+
+      <Input />
     </div>
   )
 }
