@@ -4,7 +4,7 @@ export default function SidebarLink(props) {
   const { Icon, text, active } = props
   return (
     <div
-      className={`flex items-center justify-center xl:justify-start text-xl space-x-3 hover-animation ${
+      className={`hover-animation flex items-center justify-center space-x-3 text-xl xl:justify-start ${
         active && "font-bold"
       }`}
     >

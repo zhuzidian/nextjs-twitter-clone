@@ -26,7 +26,7 @@ export default function Input(props) {
   }
 
   return (
-    <div className={`border-b border-gray-300 p-3 flex space-x-3`}>
+    <div className={`flex space-x-3 border-b border-gray-300 p-3`}>
       <img
         src="https://avatars.githubusercontent.com/u/6506853?s=40&v=4"
         alt=""
@@ -40,20 +40,20 @@ export default function Input(props) {
             onChange={(e) => setValue(e.target.value)}
             rows={2}
             placeholder="いまどうしてる？"
-            className="bg-transparent outline-none text-lg tracking-wide w-full min-h-[50px]"
+            className="min-h-[50px] w-full bg-transparent text-lg tracking-wide outline-none"
           />
           {selectedFile && (
             <div className="relative">
               <div
-                className="absolute w-8 h-8 hover:bg-blue-100 bg-opacity-70 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer"
+                className="absolute top-1 left-1 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-opacity-70 hover:bg-blue-100"
                 onClick={() => setSelectedFile(null)}
               >
-                <HiX className="text-white h-5" />
+                <HiX className="h-5 text-white" />
               </div>
               <img
                 src="https://w.wallhaven.cc/full/y8/wallhaven-y8622k.jpg"
                 alt=""
-                className="rounded-2xl max-h-80 object-contain"
+                className="max-h-80 rounded-2xl object-contain"
               />
             </div>
           )}
