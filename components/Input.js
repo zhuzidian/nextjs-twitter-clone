@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import dynamic from "next/dynamic"
+// import dynamic from "next/dynamic"
 
 import {
   HiCalendar,
@@ -9,20 +9,40 @@ import {
   HiX,
 } from "react-icons/hi"
 
-const EmojiPicker = dynamic(() => import("./EmojiPicker"), {
-  ssr: false,
-})
+// const EmojiPicker = dynamic(() => import("./EmojiPicker"), {
+//   ssr: false,
+// })
+
+import EmojiPicker from "./EmojiPicker"
 
 export default function Input(props) {
-  const [value, setValue] = useState("")
-  const [selectedFile, setSelectedFile] = useState(
-    "https://w.wallhaven.cc/full/y8/wallhaven-y8622k.jpg"
-  )
+  const [input, setInput] = useState("")
+  // const [selectedFile, setSelectedFile] = useState(
+  //   "https://w.wallhaven.cc/full/y8/wallhaven-y8622k.jpg"
+  // )
+  const [selectedFile, setSelectedFile] = useState(null)
   const [showEmojiPicker, setShowEmojiPicker] = useState(false)
   const filePickerRef = useRef()
+  const [loading, setLoading] = useState(false)
 
   function addImageToPost() {
     console.log("addImageToPost")
+  }
+
+  function addEmoji(e) {
+    // let sym = e.unified.split("-")
+    // let codesArray = []
+    // sym.forEach((el) => codesArray.push("0x" + el))
+    // let emoji = String.fromCodePoint(...codesArray)
+    // setInput((input) => input + emoji)
+    setInput((input) => input + e.native)
+  }
+
+  function sendPost(e) {
+    console.log("sendPost", e)
+
+    if (loading) return
+    setLoading(true)
   }
 
   return (
@@ -36,8 +56,8 @@ export default function Input(props) {
       <div className="w-full divide-y divide-gray-300">
         <div>
           <textarea
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             rows={2}
             placeholder="いまどうしてる？"
             className="min-h-[50px] w-full bg-transparent text-lg tracking-wide outline-none"
@@ -87,9 +107,16 @@ export default function Input(props) {
               <HiCalendar className="text-[#1d9bf0]" />
             </div>
 
-            {showEmojiPicker && <EmojiPicker />}
+            {showEmojiPicker && <EmojiPicker onEmojiSelect={addEmoji} />}
           </div>
-          <div>2</div>
+
+          <button
+            className="rounded-full bg-[#1d9bf0] px-4 py-1.5 font-bold text-white hover:bg-[#1a8cd8] disabled:cursor-default disabled:opacity-50 disabled:hover:bg-[#1d9bf0]"
+            disabled={!input.trim() && !selectedFile}
+            onClick={sendPost}
+          >
+            ツイートする
+          </button>
         </div>
       </div>
     </div>
